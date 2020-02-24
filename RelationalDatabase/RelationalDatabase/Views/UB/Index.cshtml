@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RelationalDatabase.Models.InstrumentUncBudgetViewModel>
+
+@{ 
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table>
+
+
+    @foreach (var group in Model.GroupBy(item => item.UbId))
+    {
+        <tr><td>
+               @group.Key
+        </td></tr>
+        foreach (var item in group)
+
+        {
+        <tr>
+            <td>@item.ConId</td>
+            <td>@item.Sym</td>
+            <td>@item.QuantityName</td>
+            <td>@item.StdUnc</td>
+            <td>@item.Pdf_Name</td>
+            <td>@item.Sc</td>
+            <td>@item.StdUncertainty</td>
+            <td>@item.InsName</td>
+            <td>@item.InsModel</td>
+        </tr>
+        }
+    }
+
+
+</table>
+
+    @*<table class="table">
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.ConId</td>
+                <td>@item.Sym</td>
+                <td>@item.QuantityName</td>
+                <td>@item.StdUnc</td>
+                <td>@item.Pdf_Name</td>
+                <td>@item.Sc</td>
+                <td>@item.StdUncertainty</td>
+                <td>@item.InsName</td>
+                <td>@item.InsModel</td>
+
+            </tr>
+
+            }
+        </table>*@
+

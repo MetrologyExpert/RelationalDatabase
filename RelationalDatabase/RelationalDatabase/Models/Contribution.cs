@@ -16,6 +16,7 @@ namespace RelationalDatabase.Models
         public double StandardUncertainty { get; set; }
 
         public int UbId { get; set; }
+        ICollection<UncertaintyBudget> UncertaintyBudgets { get; set; }
 
 
 

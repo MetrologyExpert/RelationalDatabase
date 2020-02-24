@@ -190,8 +190,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContributionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UBController.cs" />
+    <Compile Include="Controllers\UncertaintyBudgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,14 +222,46 @@
     <Compile Include="Migrations\202002211640562_AddNewUncertaintyBudgetTable.Designer.cs">
       <DependentUpon>202002211640562_AddNewUncertaintyBudgetTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002240950291_AddLinkToUncertaintyBudget.cs" />
+    <Compile Include="Migrations\202002240950291_AddLinkToUncertaintyBudget.Designer.cs">
+      <DependentUpon>202002240950291_AddLinkToUncertaintyBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241058379_AddInstruments.cs" />
+    <Compile Include="Migrations\202002241058379_AddInstruments.Designer.cs">
+      <DependentUpon>202002241058379_AddInstruments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241117452_AddId.cs" />
+    <Compile Include="Migrations\202002241117452_AddId.Designer.cs">
+      <DependentUpon>202002241117452_AddId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241217152_AddICollectionContributions.cs" />
+    <Compile Include="Migrations\202002241217152_AddICollectionContributions.Designer.cs">
+      <DependentUpon>202002241217152_AddICollectionContributions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241219402_AddICollectionUncertaintyBudget.cs" />
+    <Compile Include="Migrations\202002241219402_AddICollectionUncertaintyBudget.Designer.cs">
+      <DependentUpon>202002241219402_AddICollectionUncertaintyBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241323235_AddPdfs.cs" />
+    <Compile Include="Migrations\202002241323235_AddPdfs.Designer.cs">
+      <DependentUpon>202002241323235_AddPdfs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241324235_AddPdfs0.cs" />
+    <Compile Include="Migrations\202002241324235_AddPdfs0.Designer.cs">
+      <DependentUpon>202002241324235_AddPdfs0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contribution.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Pdf.cs" />
+    <Compile Include="ViewModels\InstrumentUncBudgetViewModel.cs" />
     <Compile Include="Models\UncertaintyBudget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\GroupToObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -285,6 +320,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Contributions\Create.cshtml" />
+    <Content Include="Views\Contributions\Delete.cshtml" />
+    <Content Include="Views\Contributions\Details.cshtml" />
+    <Content Include="Views\Contributions\Edit.cshtml" />
+    <Content Include="Views\Contributions\Index.cshtml" />
+    <Content Include="Views\UncertaintyBudgets\Create.cshtml" />
+    <Content Include="Views\UncertaintyBudgets\Delete.cshtml" />
+    <Content Include="Views\UncertaintyBudgets\Details.cshtml" />
+    <Content Include="Views\UncertaintyBudgets\Edit.cshtml" />
+    <Content Include="Views\UncertaintyBudgets\Index.cshtml" />
+    <Content Include="Views\UB\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +366,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002211640562_AddNewUncertaintyBudgetTable.resx">
       <DependentUpon>202002211640562_AddNewUncertaintyBudgetTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240950291_AddLinkToUncertaintyBudget.resx">
+      <DependentUpon>202002240950291_AddLinkToUncertaintyBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241058379_AddInstruments.resx">
+      <DependentUpon>202002241058379_AddInstruments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241117452_AddId.resx">
+      <DependentUpon>202002241117452_AddId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241217152_AddICollectionContributions.resx">
+      <DependentUpon>202002241217152_AddICollectionContributions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241219402_AddICollectionUncertaintyBudget.resx">
+      <DependentUpon>202002241219402_AddICollectionUncertaintyBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241323235_AddPdfs.resx">
+      <DependentUpon>202002241323235_AddPdfs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241324235_AddPdfs0.resx">
+      <DependentUpon>202002241324235_AddPdfs0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

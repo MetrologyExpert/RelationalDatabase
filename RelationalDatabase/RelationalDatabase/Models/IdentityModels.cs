@@ -28,6 +28,9 @@ namespace RelationalDatabase.Models
         public DbSet<Contribution> Contributions { get; set; }
         public DbSet<UncertaintyBudget> UncertaintyBudgets { get; set; }
 
+        public DbSet<Instrument> Instruments { get; set; }
+        public DbSet<Pdf> Pdfs { get; set; }
+
 
 
         public static ApplicationDbContext Create()

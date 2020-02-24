@@ -11,7 +11,9 @@ namespace RelationalDatabase.Models
         [Key]
         public int IdNumber { get; set; }
 
-        public string Name { get; set; }
+        public int IdInstrument { get; set; }
+
+        ICollection<Contribution>  Contributions { get; set; }
 
 
     }
